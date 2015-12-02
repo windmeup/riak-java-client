@@ -1,4 +1,4 @@
-package com.basho.riak.client.core.query.timeseries.immutable;
+package com.basho.riak.client.core.query.timeseries.wrappedpb;
 
 import com.basho.riak.client.core.query.timeseries.ICell;
 import com.basho.riak.client.core.util.BinaryValue;
@@ -8,11 +8,11 @@ import com.basho.riak.protobuf.RiakTsPB;
  * @author Sergey Galkin <srggal at gmail dot com>
  * @since 2.0.3
  */
-class CellLight implements ICell
+public class PbCell implements ICell
 {
     private final RiakTsPB.TsCell pbCell;
 
-    public CellLight(RiakTsPB.TsCell pbCell)
+    public PbCell(RiakTsPB.TsCell pbCell)
     {
         this.pbCell = pbCell;
     }
@@ -81,5 +81,44 @@ class CellLight implements ICell
     public boolean getBoolean()
     {
         return pbCell.getBooleanValue();
+    }
+
+    @Override
+    public String toString()
+    {
+        final StringBuilder sb = new StringBuilder("Cell{ ");
+
+        if (this.hasVarcharValue())
+        {
+            final String value = this.getVarcharAsUTF8String();
+            if (value.length() > 32)
+            {
+                sb.append(value.substring(0,32));
+                sb.append("...");
+            }
+            else
+            {
+                sb.append(value);
+            }
+        }
+        else if (this.hasLong())
+        {
+            sb.append(this.getLong());
+        }
+        else if (this.hasDouble())
+        {
+            sb.append(this.getDouble());
+        }
+        else if (this.hasTimestamp())
+        {
+            sb.append(this.getTimestamp());
+        }
+        else if (this.hasBoolean())
+        {
+            sb.append(this.getBoolean());
+        }
+
+        sb.append(" }");
+        return sb.toString();
     }
 }

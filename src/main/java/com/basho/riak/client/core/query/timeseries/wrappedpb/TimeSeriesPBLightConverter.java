@@ -1,4 +1,4 @@
-package com.basho.riak.client.core.query.timeseries.immutable;
+package com.basho.riak.client.core.query.timeseries.wrappedpb;
 
 import com.basho.riak.client.core.query.timeseries.IQueryResult;
 import com.basho.riak.protobuf.RiakTsPB;
@@ -14,6 +14,6 @@ public final class TimeSeriesPBLightConverter
 
     public static IQueryResult convertPbQueryResp(RiakTsPB.TsQueryResp response)
     {
-        return new QueryResultLight(response);
+        return new PbQueryResult(response);
     }
 }

@@ -1,4 +1,4 @@
-package com.basho.riak.client.core.query.timeseries.immutable;
+package com.basho.riak.client.core.query.timeseries.wrappedpb;
 
 import com.basho.riak.client.core.converters.TimeSeriesPBConverter;
 import com.basho.riak.client.core.query.timeseries.IColumnDescription;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author Sergey Galkin <srggal at gmail dot com>
  * @since 2.0.3
  */
-class QueryResultLight implements IQueryResult
+public class PbQueryResult implements IQueryResult
 {
     private static class ImmutableRowIterator implements Iterator<IRow>
     {
@@ -34,7 +34,7 @@ class QueryResultLight implements IQueryResult
         @Override
         public IRow next()
         {
-            return new RowLight(itor.next());
+            return new PbRow(itor.next());
         }
 
         @Override
@@ -47,7 +47,7 @@ class QueryResultLight implements IQueryResult
     private final RiakTsPB.TsQueryResp pbResponse;
     private transient List<IColumnDescription> columns;
 
-    public QueryResultLight(RiakTsPB.TsQueryResp response)
+    public PbQueryResult(RiakTsPB.TsQueryResp response)
     {
         this.pbResponse = response;
     }
