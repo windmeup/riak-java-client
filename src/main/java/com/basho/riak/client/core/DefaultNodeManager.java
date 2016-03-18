@@ -62,6 +62,7 @@ public class DefaultNodeManager implements NodeManager, NodeStateListener
         }
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public boolean executeOnNode(FutureOperation operation, RiakNode previousNode)
     {

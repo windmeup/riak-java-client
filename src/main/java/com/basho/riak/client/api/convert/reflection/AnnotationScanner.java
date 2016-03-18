@@ -49,6 +49,7 @@ public class AnnotationScanner implements Callable<AnnotationInfo>
         this.classToScan = clazz;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     public AnnotationInfo call() throws Exception
     {

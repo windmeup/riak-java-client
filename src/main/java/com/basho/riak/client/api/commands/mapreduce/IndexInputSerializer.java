@@ -12,7 +12,8 @@ import java.io.IOException;
  */
 public class IndexInputSerializer extends JsonSerializer<IndexInput>
 {
-	@Override
+	@SuppressWarnings("rawtypes")
+    @Override
 	public void serialize(IndexInput input, JsonGenerator jg, SerializerProvider sp) throws IOException
 	{
 		jg.writeStartObject();

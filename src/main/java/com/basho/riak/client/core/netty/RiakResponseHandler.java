@@ -19,21 +19,19 @@ import com.basho.riak.client.core.RiakMessage;
 import com.basho.riak.client.core.RiakResponseListener;
 import com.basho.riak.protobuf.RiakMessageCodes;
 import com.basho.riak.protobuf.RiakPB;
+
+import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author Brian Roach <roach at basho dot com>
  * @since 2.0
  */
-public class RiakResponseHandler extends ChannelInboundHandlerAdapter
+public class RiakResponseHandler extends ChannelHandlerAdapter
 {
 
     private RiakResponseListener listener;
-    private final Logger logger = LoggerFactory.getLogger(RiakResponseHandler.class);
     
     public RiakResponseHandler(RiakResponseListener listener)
     {

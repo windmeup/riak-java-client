@@ -25,6 +25,7 @@ import java.util.List;
  * @author Brian Roach <roach at basho dot com>
  * @since 2.0
  */
+@SuppressWarnings("rawtypes")
 public class RiakOperationEncoder extends MessageToMessageEncoder<FutureOperation>
 {
 

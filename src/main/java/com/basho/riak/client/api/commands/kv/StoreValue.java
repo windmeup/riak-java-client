@@ -94,6 +94,7 @@ public final class StoreValue extends RiakCommand<StoreValue.Response, Location>
     @Override
     protected RiakFuture<Response, Location> executeAsync(RiakCluster cluster)
     {
+        @SuppressWarnings("rawtypes")
         Converter converter;
         
         if (typeReference == null)

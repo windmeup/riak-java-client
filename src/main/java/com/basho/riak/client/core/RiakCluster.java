@@ -45,6 +45,7 @@ import org.slf4j.LoggerFactory;
  * @author Sergey Galkin <srggal at gmail dot com>
  * @since 2.0
  */
+@SuppressWarnings("rawtypes")
 public class  RiakCluster implements OperationRetrier, NodeStateListener
 {
     enum State { CREATED, RUNNING, QUEUING, SHUTTING_DOWN, SHUTDOWN }
@@ -451,6 +452,7 @@ public class  RiakCluster implements OperationRetrier, NodeStateListener
         }
     }
 
+    
     @Override
     public void operationComplete(FutureOperation operation, int remainingRetries)
     {

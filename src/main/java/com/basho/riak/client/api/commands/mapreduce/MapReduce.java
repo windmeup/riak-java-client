@@ -47,7 +47,7 @@ public abstract class MapReduce extends RiakCommand<MapReduce.Response, BinaryVa
 	private final MapReduceSpec spec;
 
     @SuppressWarnings("unchecked")
-	protected MapReduce(MapReduceInput input, Builder builder)
+	protected MapReduce(MapReduceInput input, @SuppressWarnings("rawtypes") Builder builder)
 	{
 		this.spec = new MapReduceSpec(input, builder.phases, builder.timeout);
 	}

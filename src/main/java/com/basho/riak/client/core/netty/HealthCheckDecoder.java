@@ -24,7 +24,6 @@ import com.basho.riak.protobuf.RiakMessageCodes;
 import com.basho.riak.protobuf.RiakPB;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import java.io.IOException;
@@ -84,7 +83,7 @@ public abstract class HealthCheckDecoder extends ByteToMessageDecoder
     
     private void init(ChannelHandlerContext ctx) throws InterruptedException
     {
-        ChannelFuture writeAndFlush = ctx.channel().writeAndFlush(buildOperation().channelMessage());
+        ctx.channel().writeAndFlush(buildOperation().channelMessage());
     }
     
     @Override

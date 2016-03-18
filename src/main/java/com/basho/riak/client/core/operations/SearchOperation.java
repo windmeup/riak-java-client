@@ -269,6 +269,7 @@ public class SearchOperation extends FutureOperation<SearchOperation.Response, R
         }
     }
 
+    @SuppressWarnings("rawtypes")
     public static class Response implements Iterable
     {
         private final List<Map<String, List<String>>> results;

@@ -43,7 +43,7 @@ public abstract class UpdateDatatype<T extends RiakDatatype,S,U> extends RiakCom
     private final Map<Option<?>, Object> options = new HashMap<Option<?>, Object>();
 
     @SuppressWarnings("unchecked")
-    UpdateDatatype(Builder builder)
+    UpdateDatatype(@SuppressWarnings("rawtypes") Builder builder)
     {
         this.namespace = builder.namespace;
         this.key = builder.key;
@@ -260,6 +260,7 @@ public abstract class UpdateDatatype<T extends RiakDatatype,S,U> extends RiakCom
         }
         
         protected abstract T self();
+        @SuppressWarnings("rawtypes")
         protected abstract UpdateDatatype build();
     }
 

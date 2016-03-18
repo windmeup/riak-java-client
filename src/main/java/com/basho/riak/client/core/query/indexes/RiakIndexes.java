@@ -18,7 +18,6 @@ package com.basho.riak.client.core.query.indexes;
 import com.basho.riak.client.core.query.RiakObject;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**

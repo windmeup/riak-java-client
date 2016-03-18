@@ -71,7 +71,6 @@ public final class RiakObject
     private volatile String contentType = DEFAULT_CONTENT_TYPE;
     private volatile String vtag;
     private volatile boolean isDeleted;
-    private volatile boolean isModified;
     
     // This is annotated to that the UpdateValue command 
     // can inject a vclock. 

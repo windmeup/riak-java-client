@@ -16,7 +16,6 @@
 package com.basho.riak.client.core.operations;
 
 import com.basho.riak.client.api.cap.BasicVClock;
-import com.basho.riak.client.api.cap.VClock;
 import com.basho.riak.client.core.FutureOperation;
 import com.basho.riak.client.core.RiakMessage;
 import com.basho.riak.client.core.converters.RiakObjectConverter;

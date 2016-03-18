@@ -5,7 +5,6 @@ import com.basho.riak.client.core.RiakCluster;
 import com.basho.riak.client.core.RiakFuture;
 import com.basho.riak.client.core.operations.ts.QueryOperation;
 import com.basho.riak.client.core.query.timeseries.QueryResult;
-import com.basho.riak.client.core.util.BinaryValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,7 +50,6 @@ public class Query extends RiakCommand<QueryResult, String>
         private static final Pattern paramPattern = Pattern.compile("(:[a-zA-Z][0-9a-zA-Z_]*)");
 
         private final String queryText;
-        private final Map<String, BinaryValue> interpolations = new HashMap<String, BinaryValue>();
         private final Set<String> knownParams;
 
         /**
@@ -81,23 +79,6 @@ public class Query extends RiakCommand<QueryResult, String>
 
             for (int i = 0; i < paramMatcher.groupCount(); i++) {
                 knownParams.add(paramMatcher.group(i));
-            }
-        }
-
-        private Builder addParameter(String keyString, String key, BinaryValue value)
-        {
-            checkParamValidity(keyString);
-            interpolations.put(key, value);
-            return this;
-        }
-
-        private void checkParamValidity(String paramName)
-        {
-            if (!knownParams.contains(paramName))
-            {
-                String msg = "Unknown query parameter: " + paramName;
-                logger.error(msg);
-                throw new IllegalArgumentException(msg);
             }
         }
 

@@ -307,6 +307,7 @@ public abstract class RiakIndex<T> implements Iterable<T>
      * @param obj a RiakIndex
      * @return true if this RiakIndex has the same name and type
      */
+    @SuppressWarnings("rawtypes")
     @Override
     public final boolean equals(Object obj)
     {

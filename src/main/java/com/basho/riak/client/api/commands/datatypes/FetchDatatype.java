@@ -42,7 +42,7 @@ public abstract class FetchDatatype<T extends RiakDatatype,S,U> extends RiakComm
     }
 
     @SuppressWarnings("unchecked")
-    protected FetchDatatype(Builder builder)
+    protected FetchDatatype(@SuppressWarnings("rawtypes") Builder builder)
     {
         this.location = builder.location;
         this.options.putAll(builder.options);

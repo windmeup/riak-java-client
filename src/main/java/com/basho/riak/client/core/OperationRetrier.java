@@ -22,6 +22,9 @@ package com.basho.riak.client.core;
  */
 public interface OperationRetrier
 {
+    @SuppressWarnings("rawtypes")
     public void operationFailed(FutureOperation operation, int remainingRetries);
+    
+    @SuppressWarnings("rawtypes")
     public void operationComplete(FutureOperation operation, int remainingRetries);
 }

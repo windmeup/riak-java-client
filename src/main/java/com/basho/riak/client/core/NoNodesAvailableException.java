@@ -22,6 +22,9 @@ package com.basho.riak.client.core;
  */
 public class NoNodesAvailableException extends Exception
 {
+
+    private static final long serialVersionUID = - 3066162615184812496L;
+    
     public NoNodesAvailableException() { super(); }
     public NoNodesAvailableException(String s) {
         super(s);

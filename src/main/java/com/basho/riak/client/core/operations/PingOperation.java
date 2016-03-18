@@ -20,8 +20,6 @@ import com.basho.riak.client.core.FutureOperation;
 import com.basho.riak.client.core.RiakMessage;
 import com.basho.riak.protobuf.RiakMessageCodes;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -29,8 +27,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PingOperation extends FutureOperation<Void, Void, Void>
 {
-    private final Logger logger = LoggerFactory.getLogger(PingOperation.class);
-
+    
     @Override
     protected Void convert(List<Void> rawResponse) 
     {
